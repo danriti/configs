@@ -30,11 +30,23 @@ urxvt*color7:    #f2f2f2
 ! color14    cyan
 ! color15    white
 
-urxvt*color8:    #747474
-urxvt*color9:    #f99286
+urxvt*color8:     #747474
+urxvt*color9:     #f99286
 urxvt*color10:    #c3f786
 urxvt*color11:    #fcfbcc
 urxvt*color12:    #86C9F9
 urxvt*color13:    #fba1fb
 urxvt*color14:    #d7d9fc
 urxvt*color15:    #e2e2e2
+
+urxvt*scrollBar:    off
+urxvt*font:         -*-terminus-*-*-*-*-14-*
+urxvt*geometry:     80x51
+
+! Native transparency settings
+!urxvt*transparent:  true
+!urxvt*shading:      33
+
+! True transparency settings
+!urxvt*depth:        32
+!urxvt*background:   rgba:1111/1111/1111/dddd
