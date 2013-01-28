@@ -50,3 +50,8 @@ urxvt*geometry:     80x51
 ! True transparency settings
 !urxvt*depth:        32
 !urxvt*background:   rgba:1111/1111/1111/dddd
+
+! Keybindings
+urxvt.keysym.Shift-Control-V: perl:clipboard:paste
+urxvt.iso14755: False
+urxvt.perl-ext-common: default,clipboard
