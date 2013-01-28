@@ -170,6 +170,10 @@ set synmaxcol=2048
 set nocursorline
 set nocursorcolumn
 
+" Enable support for pathogen.
+call pathogen#infect()
+filetype plugin indent on
+
 "*******************************************************************************
 " My Color Settings
 "*******************************************************************************
