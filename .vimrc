@@ -7,17 +7,25 @@
 "*******************************************************************************
 set nu
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set noswapfile
 set nohls
-set colorcolumn=81,141,201
+set colorcolumn=81,121,161
 set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
 " *nix Font Settings
 set guifont=Terminus,10
+
+" Remove all trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Lint Settings
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_python_checkers=['pylint']
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
 "*******************************************************************************
 " Windows Settings
@@ -58,7 +66,7 @@ set vb
 " Allow backspacing over indent, eol, and the start of an insert
 set backspace=2
 
-" Make sure that unsaved buffers that are to be put in the background are 
+" Make sure that unsaved buffers that are to be put in the background are
 " allowed to go in there (ie. the "must save first" error doesn't come up)
 set hidden
 
@@ -135,8 +143,8 @@ set complete=.,w,b,t
 " When completing by tag, show the whole tag, not just the function name
 set showfulltag
 
-" Set the textwidth to be 80 chars
-set textwidth=80
+" Set the textwidth to be 140 chars
+set textwidth=140
 
 " get rid of the silly characters in separators
 set fillchars = ""

@@ -16,7 +16,7 @@ Yellow='\e[0;33m'       # Yellow
 Blue='\e[0;34m'         # Blue
 Purple='\e[0;35m'       # Purple
 Cyan='\e[0;36m'         # Cyan
-White='\e[0;37m'        # White 
+White='\e[0;37m'        # White
 
 # Bold
 BBlack='\e[1;30m'       # Black
@@ -39,3 +39,9 @@ alias la='ls -al'
 alias term='urxvt -fn -*-terminus-*-*-*-*-12-* +sb'
 alias termb='urxvt -fn -*-terminus-*-*-*-*-14-* +sb'
 alias termr='urxvt -fn -*-terminus-*-*-*-*-14-* +sb -rv'
+alias clip="xclip -i -selection clipboard"
+
+export TERM=screen-256color
+export TERMINAL=urxvt
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
