@@ -1,0 +1,295 @@
+[MASTER]
+
+# Specify a configuration file.
+#rcfile=
+
+# Python code to execute, usually for sys.path manipulation such as
+# pygtk.require().
+init-hook=
+
+# Profiled execution.
+profile=no
+
+# Add files or directories to the blacklist. They should be base names, not
+# paths.
+ignore=CVS
+
+# Pickle collected data for later comparisons.
+persistent=yes
+
+# List of plugins (as comma separated values of python modules names) to load,
+# usually to register additional checkers.
+load-plugins=
+
+[MESSAGES CONTROL]
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time.
+#enable=
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where
+# it should appear only once).
+#
+# Things we ignore, and why we ignore them:
+# I0011 - This warns us that we have ignored things. We ignored them for a reason.
+# W0603 - Using the global statement is OK for the following idiom (in a function):
+#
+#         global FOO
+#         if not FOO:
+#             FOO = initialize_foo()
+#         use_foo_in_func(FOO, *args)
+# W0142 - This warns about the use of *args and **kwargs to pass arguments. We
+#         tend to use this syntax a fair bit. Turning this one later may be
+#         good, but for now, fixing these errors are low-priority, and
+#         contribute too much noise.
+# R0201 - Suggests refactoring methods that do not reference self to be
+#         functions. In Pylons, all controller/actions map to class/methods,
+#         which frequently do not need access to self. Ideally, we'd fine a way
+#         to only disable this method for the controllers directory.
+# W0223 - This warns us when a class has errors that throw NotImplementedError,
+#         but the class has no subclass. While true, there are a number of
+#         places where we've sketched out what a full-featured app would look
+#         like, but have thrown errors if we ever actually hit that branch.
+#
+#         One big place we do this is using REST-ful mapping through Pylons
+#         scaffolding -- letting Pylons define a REST-ful controller for us is a
+#         win, but implementing and testing all of it is not necessarily easy or
+#         valid. So, we throw errors. And that's fine.
+# W0703 - Warns us about not catching Exception without re-raising. We do this
+#         in celery tasks, as retrying a task does throw an exception, which can
+#         re-raise the exception. Pylint doesn't know about this.
+# C0103 - Warns us about bad variable names. More trouble than it's worth right now.
+# W0212 - Warns about access to private variables. We generally know this, and
+#         there are more false positives than useful catches. Especially in rollups.
+# R0912 - Warns about complexity of a single function. Great, useful, way too
+#         strict right now
+# R0914 - Warns about the number of variables in a single function. Similar to R0912.
+# W0221 - Warns about subclass implementations having different arguments from
+#         their parent classes. Nice in theory, but not smart enough to handle
+#         *args and **kwargs. It's either this or unused variable warnings --
+#         one them has to go.
+# R0903 - Warns about too few methods in a class. Annoying for model classes.
+# R0904 - Warns about too many methods in a class. Good idea. Not going to make
+#         us fix it, though.
+# W0105 - Warns about string statements that have no effect. Like comments.
+# C0324 - Warns about "for k,v in dict.iteritems()"
+# W0622 - Warns about redefining builtins. A good idea, but Pylons hardcodes
+#         'id' and 'format' as routing params. If we can map Pylons' map.resource
+#         pass us the right args, then we can turn this back on.
+# W0403 - Warns about relative imports. We haven't defined a package root for
+#         worker modules, so fixing these errors breaks a bunch of behavior.
+disable=I0011,W0603,W0142,R0201,R0921,W0703,C0103,W0212,R0912,R0914,W0221,R0903,R0904,W0105,C0324,W0622,W0403,F0401
+
+
+[REPORTS]
+
+# Set the output format. Available formats are text, parseable, colorized, msvs
+# (visual studio) and html
+output-format=text
+
+# Include message's id in output
+include-ids=yes
+
+# Put messages in a separate file for each module / package specified on the
+# command line instead of printing them on stdout. Reports (if any) will be
+# written in a file name "pylint_global.[txt|html]".
+files-output=no
+
+# Tells whether to display a full report or only the messages
+reports=no
+
+# Python expression which should return a note less than 10 (10 is the highest
+# note). You have access to the variables errors warning, statement which
+# respectively contain the number of errors / warnings messages and the total
+# number of statements analyzed. This is used by the global evaluation report
+# (RP0004).
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+
+# Add a comment according to your evaluation note. This is used by the global
+# evaluation report (RP0004).
+comment=no
+
+
+[BASIC]
+
+# Required attributes for module, separated by a comma
+required-attributes=
+
+# List of builtins function names that should not be used, separated by a comma
+bad-functions=map,filter,apply,input
+
+# Regular expression which should only match correct module names
+module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+
+# Regular expression which should only match correct module level names
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__)|log)$
+
+# Regular expression which should only match correct class names
+class-rgx=[A-Z_][a-zA-Z0-9]+$
+
+# Regular expression which should only match correct function names
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match correct method names
+method-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match correct instance attribute names
+attr-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match correct argument names
+argument-rgx=[a-z_][a-z0-9_]{0,30}$
+
+# Regular expression which should only match correct variable names
+variable-rgx=[a-zA-Z_][a-z0-9_]{0,30}$
+
+# Regular expression which should only match correct list comprehension /
+# generator expression variable names
+inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
+
+# Good variable names which should always be accepted, separated by a comma
+good-names=i,j,k,ex,Run,_,kwargs,args,kw,opts
+
+# Bad variable names which should always be refused, separated by a comma
+bad-names=foo,baz,toto,tutu,tata
+
+# Regular expression which should only match functions or classes name which do
+# not require a docstring
+no-docstring-rgx=.*
+
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+max-line-length=120
+
+# Maximum number of lines in a module
+max-module-lines=2000
+
+# String used as indentation unit. This is usually " " (4 spaces) or "\t" (1
+# tab).
+indent-string='    '
+
+
+[MISCELLANEOUS]
+
+# List of note tags to take in consideration, separated by a comma.
+notes=
+
+
+[SIMILARITIES]
+
+# Minimum lines number of a similarity.
+min-similarity-lines=4
+
+# Ignore comments when computing similarities.
+ignore-comments=yes
+
+# Ignore docstrings when computing similarities.
+ignore-docstrings=yes
+
+
+[TYPECHECK]
+
+# Tells whether missing members accessed in mixin class should be ignored. A
+# mixin class is detected if its name ends with "mixin" (case insensitive).
+ignore-mixin-members=yes
+
+# List of classes names for which member attributes should not be checked
+# (useful for classes with attributes dynamically set).
+#
+# Generated with the following monstrosity, which grabs:
+# - All ORM-mapped classes
+# - All celery tasks (pylint can't find retry, etc.)
+#
+# echo $(find tracelytics/tracelytics/model/ -name "*.p's/.*orm.mapper(\([A-Za-z_]*\),.*/\1/g' ) $(find . -name "*.py" | xargs -I file grep -A 2 '\@task' file | grep '^def' | sed 's/def \(.*\)(.*/\1/g') | tr ' ' '\n' | sort | tr '\n' ','
+#
+# Plus the following: ScopedSession, Context, ISTables, BaseData, BaseItem, hashlib
+ignored-classes=AlertDefinition,App,alert_handler,AlertIncident,alert_task_builder,Annotation,AppExtent,AppInfo,AppSummary,AppTrace,AvailablePlan,BaseJoinTrace,Browser,build_charge,CacheOp,CacheSummary,CacheTrace,Charge,Check,ControllerAction,create_charges,create_customer_payment_tasks,create_notifications,crush_times,Domain,Url,do_transform,EmailLog,ErrorCheck,ErrorSummary,ErrorTrace,ExtentDescriptor,ExtentSummary,ExtentTrace,flush_cache,Group,GroupPermission,HostAliases,HostCheck,Hosts,HostStats,Instrumentation,InviteCode,LatencyCheck,Organization,Notification,Partition,Permission,post_charge,Profiles,ProfileSummary,ProfileTrace,QueryDatabase,QueryFingerprint,QueryFingerprintTable,QueryOp,QuerySummary,QueryTrace,Region,RumErrorSummary,RumSummary,save_charge,send_mail,Servers,ServiceSummary,ServiceTask,ServiceTrace,Shard,Subscription,task_builder,TF_Preferences,Trace,TraceExtent,TraceInfo,TraceSummary,User,UserGroup,UserNotification,UserOrganization,UserToken,UserToUserInvite,write,ScopedSession,Context,ISTables,BaseData,BaseItem,hashlib,HostSettings,Version
+
+# When zope mode is activated, add a predefined set of Zope acquired attributes
+# to generated-members.
+zope=no
+
+# List of members which are set dynamically and missed by pylint inference
+# system, and so shouldn't trigger E0201 when accessed. Python regular
+# expressions are accepted.
+generated-members=REQUEST,acl_users,aq_parent
+
+
+[VARIABLES]
+
+# Tells whether we should check for unused import in __init__ files.
+init-import=no
+
+# A regular expression matching the beginning of the name of dummy variables
+# (i.e. not used).
+dummy-variables-rgx=_|dummy|kwargs|kw|args
+
+# List of additional names supposed to be defined in builtins. Remember that
+# you should avoid to define new builtins when possible.
+additional-builtins=
+
+
+[CLASSES]
+
+# List of interface methods to ignore, separated by a comma. This is used for
+# instance to not check methods defines in Zope's Interface base class.
+ignore-iface-methods=isImplementedBy,deferred,extends,names,namesAndDescriptions,queryDescriptionFor,getBases,getDescriptionFor,getDoc,getName,getTaggedValue,getTaggedValueTags,isEqualOrExtendedBy,setTaggedValue,isImplementedByInstancesOf,adaptWith,is_implemented_by
+
+# List of method names used to declare (i.e. assign) instance attributes.
+defining-attr-methods=__init__,__new__
+
+
+[DESIGN]
+
+# Maximum number of arguments for function / method
+max-args=25
+
+# Argument names that match this expression will be ignored. Default to name
+# with leading underscore
+ignored-argument-names=_.*
+
+# Maximum number of locals for function / method body
+max-locals=30
+
+# Maximum number of return / yield for function / method body
+max-returns=6
+
+# Maximum number of branch for function / method body
+max-branchs=12
+
+# Maximum number of statements in function / method body
+max-statements=100
+
+# Maximum number of parents for a class (see R0901).
+max-parents=7
+
+# Maximum number of attributes for a class (see R0902).
+max-attributes=20
+
+# Minimum number of public methods for a class (see R0903).
+min-public-methods=2
+
+# Maximum number of public methods for a class (see R0904).
+max-public-methods=40
+
+
+[IMPORTS]
+
+# Deprecated modules which should not be used, separated by a comma
+deprecated-modules=regsub,string,TERMIOS,Bastion,rexec
+
+# Create a graph of every (i.e. internal and external) dependencies in the
+# given file (report RP0402 must not be disabled)
+import-graph=
+
+# Create a graph of external dependencies in the given file (report RP0402 must
+# not be disabled)
+ext-import-graph=
+
+# Create a graph of internal dependencies in the given file (report RP0402 must
+# not be disabled)
+int-import-graph=
