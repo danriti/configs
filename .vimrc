@@ -17,7 +17,8 @@ set autochdir
 autocmd BufEnter * silent! lcd %:p:h
 
 " *nix Font Settings
-set guifont=Terminus,10
+" set guifont=Terminus,10
+set guifont=Terminus\ Bold\ 10
 
 " Remove all trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -101,9 +102,9 @@ set mousehide
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
 " set the gui options the way I like (This is Derek's Setting)
-" set guioptions=acg
-set guioptions-=T
-set guioptions-=m
+set guioptions=acg
+"set guioptions-=T
+"set guioptions-=m
 
 " This is the timeout used while waiting for user input on a multi-keyed macro
 " or while just sitting and waiting for another key to be pressed measured
