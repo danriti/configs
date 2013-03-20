@@ -161,6 +161,7 @@ for_window [class="^Chrome$" title=" - Chromium$"] border none
 for_window [title=" - Google Chrome$"] border none
 for_window [title=" - Mozilla Firefox$"] border none
 for_window [title=" - Shutter$"] floating enable
+for_window [title="^gitk:"] floating enable
 
 # Run gnome magic...so you can copy+paste and all the other fancy things in
 # life.
