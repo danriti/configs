@@ -153,6 +153,8 @@ bar {
 # My shortcuts!
 bindsym $mod+c exec google-chrome
 bindsym $mod+g exec gvim
+bindsym $mod+F4 kill
+bindsym Mod4+l exec i3lock
 
 # My settings!
 for_window [class="^Chrome$" title=" - Chromium$"] border none
