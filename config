@@ -155,6 +155,7 @@ bindsym $mod+c exec google-chrome
 bindsym $mod+g exec gvim
 bindsym $mod+F4 kill
 bindsym Mod4+l exec i3lock
+bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/'
 
 # My settings!
 for_window [class="^Chrome$" title=" - Chromium$"] border none
