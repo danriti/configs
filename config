@@ -152,7 +152,14 @@ bar {
 
 # My shortcuts!
 bindsym $mod+c exec google-chrome
+bindsym $mod+g exec gvim
 
 # My settings!
 for_window [class="^Chrome$" title=" - Chromium$"] border none
 for_window [title=" - Google Chrome$"] border none
+for_window [title=" - Mozilla Firefox$"] border none
+for_window [title=" - Shutter$"] floating enable
+
+# Run gnome magic...so you can copy+paste and all the other fancy things in
+# life.
+ exec /usr/libexec/gnome-settings-daemon
