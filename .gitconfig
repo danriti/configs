@@ -1,0 +1,11 @@
+[user]
+    name = Dan Riti
+    email = driti@tracelytics.com
+[push]
+	default = tracking
+[log]
+	decorate = full
+[color]
+	ui = true
+[diff]
+	tool = meld
