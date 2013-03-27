@@ -1,11 +1,13 @@
 [user]
-    name = Dan Riti
-    email = driti@tracelytics.com
+  name = Dan Riti
+  email = driti@tracelytics.com
 [push]
-	default = tracking
+  default = tracking
 [log]
-	decorate = full
+  decorate = full
 [color]
-	ui = true
+  ui = true
 [diff]
-	tool = meld
+  tool = meld
+[core]
+	editor = vim
