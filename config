@@ -166,4 +166,4 @@ for_window [title="^gitk:"] floating enable
 
 # Run gnome magic...so you can copy+paste and all the other fancy things in
 # life.
- exec /usr/libexec/gnome-settings-daemon
+ exec /usr/bin/gnome-settings-daemon
