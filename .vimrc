@@ -28,6 +28,10 @@ let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_python_checkers=['pylint']
 let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 
+" Spellchecker
+set spelllang=en_us
+autocmd BufNewFile,BufRead *.md setlocal spell
+
 "*******************************************************************************
 " Windows Settings
 "*******************************************************************************
@@ -47,6 +51,9 @@ nmap <silent> ,wa :1,9000bwipeout<cr>
 
 " Edit the vimrc file
 nmap <silent> ,ev :e $MYVIMRC<CR>
+
+" Toggle spell checking
+nmap <silent> ,s :set spell!<CR>
 
 "*******************************************************************************
 " Derek Wyatt's settings
