@@ -32,6 +32,9 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 set spelllang=en_us
 autocmd BufNewFile,BufRead *.md setlocal spell
 
+" Indent settings
+autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+
 "*******************************************************************************
 " Windows Settings
 "*******************************************************************************
