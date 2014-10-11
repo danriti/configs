@@ -44,4 +44,23 @@ alias clip="xclip -i -selection clipboard"
 export TERM=screen-256color
 export TERMINAL=urxvt
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Go
+# export GOROOT=/usr/local/go
+# export GOPATH=/home/driti/go
+# export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH:$GOPATH/bin
+
+# Initialize RVM
+# export PATH=$PATH:$HOME/.rvm/bin
+
+# Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+
+# Initialize GVM
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+# Add py3k to path
+# export PATH=$PATH:$HOME/opt/bin
+
+# Set unlimited history file size
+export HISTSIZE= HISTFILESIZE=
