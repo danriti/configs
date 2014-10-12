@@ -68,7 +68,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+#bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -154,8 +154,9 @@ bar {
 bindsym $mod+c exec google-chrome
 bindsym $mod+g exec gvim
 bindsym $mod+F4 kill
-bindsym Mod4+l exec i3lock
+#bindsym Mod4+l exec i3lock
 bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Pictures/'
+bindsym $mod+p exec scrot -s -e 'mv $f ~/Pictures/'
 #bindsym Print exec scrot -e 'mv $f ~/Pictures/'
 bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 
