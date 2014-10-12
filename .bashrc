@@ -44,6 +44,14 @@ alias clip="xclip -i -selection clipboard"
 export TERM=screen-256color
 export TERMINAL=urxvt
 
+# Set unlimited history file size
+export HISTSIZE= HISTFILESIZE=
+
+# Initialize NVM
+if [ -d "$HOME/.nvm" ]; then
+  source $HOME/.nvm/nvm.sh
+fi
+
 # Go
 # export GOROOT=/usr/local/go
 # export GOPATH=/home/driti/go
@@ -61,6 +69,3 @@ export TERMINAL=urxvt
 
 # Add py3k to path
 # export PATH=$PATH:$HOME/opt/bin
-
-# Set unlimited history file size
-export HISTSIZE= HISTFILESIZE=
