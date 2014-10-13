@@ -56,14 +56,14 @@ export HISTSIZE= HISTFILESIZE=
 # Initialize GVM
 [ -s "$HOME/.gvm/gvm/scripts/gvm" ] && source "$HOME/.gvm/gvm/scripts/gvm"
 
+# Initialize Heroku Toolbelt
+[ -d "/usr/local/heroku/bin" ] && export PATH="/usr/local/heroku/bin:$PATH"
+
 # Go
 # export GOROOT=/usr/local/go
 # export GOPATH=/home/driti/go
 # export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH:$GOPATH/bin
-
-# Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
 
 # Add py3k to path
 # export PATH=$PATH:$HOME/opt/bin
