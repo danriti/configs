@@ -48,9 +48,13 @@ export TERMINAL=urxvt
 export HISTSIZE= HISTFILESIZE=
 
 # Initialize NVM
-if [ -d "$HOME/.nvm" ]; then
-  source $HOME/.nvm/nvm.sh
-fi
+[ -s "$HOME/.nvm/nvm.sh" ] && source $HOME/.nvm/nvm.sh
+
+# Initialize RVM
+[ -d "$HOME/.rvm/bin" ] && export PATH=$PATH:$HOME/.rvm/bin
+
+# Initialize GVM
+[ -s "$HOME/.gvm/scripts/gvm" ] && source "$HOME/.gvm/scripts/gvm"
 
 # Go
 # export GOROOT=/usr/local/go
@@ -58,14 +62,8 @@ fi
 # export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH:$GOPATH/bin
 
-# Initialize RVM
-# export PATH=$PATH:$HOME/.rvm/bin
-
 # Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
-
-# Initialize GVM
-# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # Add py3k to path
 # export PATH=$PATH:$HOME/opt/bin
