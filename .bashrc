@@ -54,7 +54,7 @@ export HISTSIZE= HISTFILESIZE=
 [ -d "$HOME/.rvm/bin" ] && export PATH=$PATH:$HOME/.rvm/bin
 
 # Initialize GVM
-[ -s "$HOME/.gvm/scripts/gvm" ] && source "$HOME/.gvm/scripts/gvm"
+[ -s "$HOME/.gvm/gvm/scripts/gvm" ] && source "$HOME/.gvm/gvm/scripts/gvm"
 
 # Go
 # export GOROOT=/usr/local/go
