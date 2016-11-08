@@ -5,7 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 Color_Off='\e[0m'       # Text Reset
 
 # Regular Colors

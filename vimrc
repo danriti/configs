@@ -34,6 +34,9 @@ autocmd BufNewFile,BufRead *.md setlocal spell
 
 " Indent settings
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 "*******************************************************************************
 " Windows Settings
